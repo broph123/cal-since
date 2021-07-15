@@ -1,30 +1,22 @@
-
 import React, {useState, useEffect} from 'react';
 import Calendar from 'react-calendar'
 import SinceCal from './components/sinceCal';
+import { useLocalStorage } from './hooks/useLocalStorage';
+
 
 import './App.css';
 import 'react-calendar/dist/Calendar.css';
 
 function App() {
 
-  const dateFromLocalStorage = localStorage.getItem('date');
-  const projectFromLocalStorage = JSON.parse(localStorage.getItem('project' || ""));
 
   const [date, setDate] = useState(new Date());
   const [inputValue, setInputValue] = useState('');
-  const [since,setSince] = useState(projectFromLocalStorage);
-  const [dateNumber,setDateNumber] = useState(dateFromLocalStorage);
-
-  const diffDate = new Date().getTime() - new Date(date).getTime();
-   
+  const [since,setSince] = useLocalStorage("project", "");
 
 
-
-useEffect(() => {
-  localStorage.setItem('date', dateNumber);
-  localStorage.setItem('project', JSON.stringify(since));}, [inputValue, dateNumber]);
-
+ const diffDate = new Date().getTime() - new Date(date).getTime();
+ const convertDate = Math.floor(diffDate / (1000 * 60 * 60 * 24))
 
 
 // Form functions
@@ -43,7 +35,7 @@ const onInputChange = (e) => {
 // Calendar Function
   const onChange = (date) => {
     setDate(date)
-    setDateNumber(Math.floor(diffDate / (1000 * 60 * 60 * 24)))
+    
    
   
   }
@@ -62,7 +54,7 @@ const onInputChange = (e) => {
      </div>
      <div className="content">
        <div className="column">
-         <SinceCal dayConvert={dateNumber} title={since}/>
+         <SinceCal dayConvert={convertDate} title={since}/>
        </div>
         <div className="react-cal">
           <Calendar onChange={onChange}value={date} showNeighboringMonth={false} maxDate={new Date()}/>
