@@ -17,6 +17,7 @@ function App() {
 
 
  const diffDate = new Date().getTime() - new Date(date).getTime();
+ const convertDate = Math.floor(diffDate / (1000 * 60 * 60 * 24))
  
 
 
@@ -36,11 +37,21 @@ const onInputChange = (e) => {
 // Calendar Function
   const onChange = (date) => {
     setDate(date)
-    setDateCounter(Math.floor(diffDate / (1000 * 60 * 60 * 24)))
+    setDateCounter(convertDate)
+    
     
    
   
   }
+  useEffect(()=>{
+    
+    const timer = setInterval(()=>{
+      setDateCounter(dateCounter+1)
+      
+
+    },86400000)
+    return ()=>clearInterval(timer)
+  })
 
   
   return (
