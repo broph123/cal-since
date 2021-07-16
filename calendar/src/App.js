@@ -13,10 +13,11 @@ function App() {
   const [date, setDate] = useState(new Date());
   const [inputValue, setInputValue] = useState('');
   const [since,setSince] = useLocalStorage("project", "");
+  const [dateCounter, setDateCounter] = useLocalStorage("date" , 0)
 
 
  const diffDate = new Date().getTime() - new Date(date).getTime();
- const convertDate = Math.floor(diffDate / (1000 * 60 * 60 * 24))
+ 
 
 
 // Form functions
@@ -35,6 +36,7 @@ const onInputChange = (e) => {
 // Calendar Function
   const onChange = (date) => {
     setDate(date)
+    setDateCounter(Math.floor(diffDate / (1000 * 60 * 60 * 24)))
     
    
   
@@ -54,7 +56,7 @@ const onInputChange = (e) => {
      </div>
      <div className="content">
        <div className="column">
-         <SinceCal dayConvert={convertDate} title={since}/>
+         <SinceCal dayConvert={dateCounter} title={since}/>
        </div>
         <div className="react-cal">
           <Calendar onChange={onChange}value={date} showNeighboringMonth={false} maxDate={new Date()}/>
