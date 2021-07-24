@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Calendar from 'react-calendar'
 import SinceCal from './components/sinceCal';
+import ToDo from './components/ToDo';
+
+
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 
@@ -49,7 +52,7 @@ const onInputChange = (e) => {
       setDateCounter(dateCounter+1)
       
 
-    },86400000)
+    },600000)
     return ()=>clearInterval(timer)
   })
 
@@ -62,10 +65,10 @@ const onInputChange = (e) => {
          <h1>What Did We Start?</h1>
         <input type="text" placeholder="Stay on Track" value={inputValue} onChange={onInputChange}></input>
        </form>
-       
-  
      </div>
-     <div className="content">
+     <ToDo/>
+
+     <div className="calendar-content">
        <div className="column">
          <SinceCal dayConvert={dateCounter} title={since}/>
        </div>
