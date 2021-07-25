@@ -23,19 +23,22 @@ function ToDo() {
     const deleteItem = (e,id) =>{
         e.preventDefault()
         setItemList(itemList.filter(item => item.id !== id))
+
     }
 
-  const editTask = (e,id) =>{
-        e.preventDefault()
-        const element = itemList.findIndex((elem)=>elem.id === id)
-        const newItemList = [...itemList]
-        newItemList[element] = {
-            ...newItemList[element],
-            completed:true,
-        }
-        setItemList(newItemList)
-        }
 
+    const handleToggle = (e,id) => {
+        e.preventDefault()
+        const toDoItem = itemList.find(item => item.id === id)
+        const newTaskList =[...itemList]
+
+        newTaskList[toDoItem] = {
+            ...newTaskList[toDoItem],
+            completed:true,
+    }
+    setItemList(newTaskList)
+}
+    
 
    
    
@@ -43,9 +46,13 @@ function ToDo() {
         <>
         <div className="to-do-list">
            <ul>{itemList.map(item => 
-           <p className="tasks" key={item.id}>{item.task}
+           <div className={ item.completed? "done":"tasks"} key={item.id} id={item.id} >
+               {item.task} 
            <button onClick={(e)=>deleteItem(e,item.id)}>Delete</button>
-           </p>)}
+           
+        
+           </div>
+           )}
            </ul>
         </div> 
 

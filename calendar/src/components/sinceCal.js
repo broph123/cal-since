@@ -7,7 +7,7 @@ function sinceCal({dayConvert,}) {
             
             <div className="number" >
               <h1>
-                 {`${dayConvert} Days Ago`}    
+                 {` Day ${dayConvert}`}    
               </h1>
             </div>
            

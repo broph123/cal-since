@@ -52,7 +52,7 @@ const onInputChange = (e) => {
       setDateCounter(dateCounter+1)
       
 
-    },600000)
+    },60000)
     return ()=>clearInterval(timer)
   })
 
@@ -62,14 +62,14 @@ const onInputChange = (e) => {
      <nav/>
      <div className="starting">
        <form onSubmit={handleSubmit}>
-         <h1>What Did We Start?</h1>
-        <input type="text" placeholder="Stay on Track" value={inputValue} onChange={onInputChange}></input>
+         <h1>Welcome to Long-Term HQ</h1>
+        <input type="text" placeholder="What Are you Working Towards" value={inputValue} onChange={onInputChange}></input>
        </form>
      </div>
 
      <div className="headings-container">
        <div className="left-heading">
-         <h2>How are we moving foward?</h2>
+         <h2>How are you moving foward?</h2>
        </div>
        <h2>{!since? "Enter your long-term goal" : since}</h2>
      </div>
@@ -87,7 +87,7 @@ const onInputChange = (e) => {
      
 
    
-      
+     
     </div>
   );
 }
