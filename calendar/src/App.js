@@ -66,18 +66,21 @@ const onInputChange = (e) => {
         <input type="text" placeholder="Stay on Track" value={inputValue} onChange={onInputChange}></input>
        </form>
      </div>
-     <ToDo/>
 
-     <div className="calendar-content">
-       <div className="column">
-         <SinceCal dayConvert={dateCounter} title={since}/>
-       </div>
-        <div className="react-cal">
-          <Calendar onChange={onChange}value={date} showNeighboringMonth={false} maxDate={new Date()}/>
-        </div>
-        
-        
+     <div className="moving-forward">
+       <h2>How are we moving foward?</h2>
      </div>
+     
+     <div className="to-do-container">
+       <ToDo/>
+     </div>
+     
+
+      <div className="calendar-container">
+         <SinceCal dayConvert={dateCounter} title={since}/>
+         <Calendar onChange={onChange}value={date} showNeighboringMonth={false} maxDate={new Date()}/>
+
+     </div> 
      
 
    

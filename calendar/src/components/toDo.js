@@ -40,25 +40,26 @@ function ToDo() {
    
    
     return (
-        <div>
+        <>
+        <div className="to-do-list">
            <ul>{itemList.map(item => 
-           <li key={item.id}>{item.task}
-           <button>Completed</button>
+           <p className="tasks" key={item.id}>{item.task}
            <button onClick={(e)=>deleteItem(e,item.id)}>Delete</button>
-          
-
-           </li>)}
+           </p>)}
            </ul>
-              
-           
-            
-            <form onSubmit={addItem}>
-            <input type="text" placeholder="What are we working on today" value={item} onChange={handleChange} />
-            </form>
-            
-           
-            
+        </div> 
+        
+        <div className="to-do-input">
+        <form onSubmit={(e)=>addItem(e)}>
+        <input type="text" placeholder="What are we working on today" value={item} onChange={handleChange} />
+        </form> 
         </div>
+           
+            
+           
+            
+        
+        </>
     )
 }
 
