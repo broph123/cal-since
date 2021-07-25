@@ -3,7 +3,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 
 function ToDo() {
     const [item,setItem] = useState("")
-    const [itemList, setItemList] = useState([{task:"Create a Todo", completed:false, id:1}])
+    const [itemList, setItemList] = useState([{task:"GET TO WORK", completed:false, id:1}])
 
     const handleChange = (e) =>{
         setItem(e.target.value)
@@ -48,7 +48,7 @@ function ToDo() {
            </p>)}
            </ul>
         </div> 
-        
+
         <div className="to-do-input">
         <form onSubmit={(e)=>addItem(e)}>
         <input type="text" placeholder="What are we working on today" value={item} onChange={handleChange} />

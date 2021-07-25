@@ -22,10 +22,17 @@
   
 /* TO DO COLUMN */
 
-.moving-forward{
+.headings-container{
   font-size: 1.5rem;
+  display: flex;
+  padding-left: 10px;
+  width: 90%;
+  justify-content: space-between;
+}
+.left-heading{
   padding-left: 5%;
 }
+
 
 .to-do-container{
  
@@ -69,7 +76,7 @@
   height: 5vh;
   font-size: 1.5rem;
   border-radius: 30px;
-  border: 3px solid green;
+  
   
  
 }
@@ -85,33 +92,22 @@
 
   .calendar-container{
     display: flex;
-    /* width: 50%; */
     float: right;
-  }
-  
-  .day-since{
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
+    height: 50%;
+    margin: 30px;
     
-    flex: 50%;
-    /* background-color: blue; */
-  
-
-  }
-  .day-since >h2{
-    width: 70%;
-    /* background-color: orange; */
-    text-align: center;
-  }
+   
     
-
+   
+  }
   
+ 
+    
   .number{
     text-align: center;
     width: 300px;
     height: 300px;
-    margin-left: 150px;
+    margin-right: 40px;
     border: 5px solid black;
   }
   .number >h1{

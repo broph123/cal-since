@@ -1,13 +1,13 @@
 import React from 'react'
 
-function sinceCal({dayConvert,title}) {
+function sinceCal({dayConvert,}) {
     
     return (
         <div className="day-since">
-            <h2>{`Days since ${title}`}</h2>
+            
             <div className="number" >
               <h1>
-                 {`${dayConvert} Days`}    
+                 {`${dayConvert} Days Ago`}    
               </h1>
             </div>
            

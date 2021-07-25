@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Calendar from 'react-calendar'
-import SinceCal from './components/sinceCal';
+import SinceCal from './components/SinceCal';
 import ToDo from './components/ToDo';
 
 
@@ -67,8 +67,11 @@ const onInputChange = (e) => {
        </form>
      </div>
 
-     <div className="moving-forward">
-       <h2>How are we moving foward?</h2>
+     <div className="headings-container">
+       <div className="left-heading">
+         <h2>How are we moving foward?</h2>
+       </div>
+       <h2>{!since? "Enter your long-term goal" : since}</h2>
      </div>
      
      <div className="to-do-container">
@@ -77,7 +80,7 @@ const onInputChange = (e) => {
      
 
       <div className="calendar-container">
-         <SinceCal dayConvert={dateCounter} title={since}/>
+         <SinceCal dayConvert={dateCounter}/>
          <Calendar onChange={onChange}value={date} showNeighboringMonth={false} maxDate={new Date()}/>
 
      </div> 
