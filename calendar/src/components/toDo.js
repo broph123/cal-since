@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 function ToDo() {
     const [item,setItem] = useState("")
@@ -48,7 +49,7 @@ function ToDo() {
            <ul>{itemList.map(item => 
            <div className={ item.completed? "done":"tasks"} key={item.id} id={item.id} >
                {item.task} 
-           <button onClick={(e)=>deleteItem(e,item.id)}>Delete</button>
+           <DeleteOutlineIcon onClick={(e)=>deleteItem(e,item.id)}>Delete</DeleteOutlineIcon>
            
         
            </div>
